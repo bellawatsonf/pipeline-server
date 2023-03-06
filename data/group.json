@@ -1,0 +1,368 @@
+
+        {"nama_group" : "CORPORATE BUSINESS 1 GROUP"}	
+        {"nama_group" : "CORPORATE BUSINESS 2 GROUP"},		
+        {"nama_group" : "CORPORATE BUSINESS 3 GROUP"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION ACEH"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION BANJARMASI"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION SEMARANGREGIONAL COMMERCIAL BUSINESS REGION SEMARANG"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION JAKARTA 2"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION BANDUNG"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION MAKASSAR"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION MEDAN"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION JAKARTA 1.2"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION PALEMBANG"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION JAKARTA 1.1"},		
+        {"nama_group" : "REGIONAL COMMERCIAL BUSINESS REGION SURABAYA"},		
+
+        {
+            nama_sector:"KONSTRUKSI & INFRASTRUKTUR",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"JASA KESEHATAN            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"KELAPA SAWIT
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"INDUSTRI KERTAS
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"JASA KEUANGAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"KETENAGALISTRIKAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"JASA PENDIDIKAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"INDUSTRI MIGAS
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"INDUSTRI FARMASI & ALAT KESEHATAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"PERTAMBANGAN EMAS & PERAK
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"TRANSPORTASI DARAT
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"TELEKOMUNIKASI
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"INDUSTRI PUPUK
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"JASA LOGISTIK
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"INDUSTRI PENGOLAHAN DAGING & PAKAN TERNAK
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"INDUSTRI MAKANAN & MINUMAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"INDUSTRI KIMIA
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"PERTAMBANGAN BIJIH LOGAM
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"PERDAGANGAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"INDUSTRI PENGOLAHAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"TRANSPORTASI NON DARAT
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"JASA LAINNYA
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"PROPERTI
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"PERTAMBANGAN LAINNYA
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"AGRIBISNIS (NON SAWIT)
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+
+        
+
+
+
+        {
+            nama_sector:"COLLECT DOKUMEN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"MEETING PIPELINE
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"PROSES NAP
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"PROSES RKP
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },{
+            nama_sector:"FINALISASI NOTA
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"PROSES AKAD
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        }
+
+
+
+        {
+            nama_sector:"TAMBAHAN
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+            nama_sector:"EKSISTING
+            ",
+            createdAt: new Date(),
+          updatedAt: new Date(),
+        }
+
+
+
+        {
+          nip:"2185001923",
+          password:"12345",
+          nama_pegawai:"YAYANDI GUSHAGIA"
+        posisi:"CORPORATE BUSINESS SECTOR 1 DEPARTMENT HEAD"
+      lokasi:"KANTOR PUSAT" 
+    group_id:1
+  level:"user"  
+  },
+        {
+          nip:"2186005592"
+          password:"12345"
+        nama_pegawai:"ARIF HIDAYAT"
+      posisi:"CORPORATE BUSINESS SECTOR 1 DEPARTMENT HEAD"  
+    lokasi:"KANTOR PUSAT" 
+  group_id:2 
+level:"user"  
+}
+        {
+          nip:"2176001702"
+          password:"12345"
+        nama_pegawai:"HERU KUSUMA WARDHANA"
+        posisi:"CORPORATE BUSINESS SECTOR 1 DEPARTMENT HEAD"  
+       lokasi:"KANTOR PUSAT"
+       group_id:3 
+       level:"user"
+       },  {
+          nip:"2187004390"
+          password:"12345"
+        nama_pegawai:"ACHMAD FALUTHY"
+        posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+       lokasi:"RO I BANDA ACEH"
+       group_id:4 
+       level:"user"
+       },  {
+          nip:"2184001890"
+          password:"12345"
+        nama_pegawai:"ALVADI MUHAMMAD IVALDI"
+      posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+    lokasi:"RO IX BANJARMASIN" 
+  group_id:5  
+level:"user"  
+},
+        {
+          nip:"2184001161"
+          password:"12345"
+        nama_pegawai:"ARRY ADITYA PRATAMA"
+      posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+    lokasi:"RO VII SEMARANG" 
+  group_id:6  
+level:"user"  
+},
+        {
+          nip:"2178000297"
+          password:"12345"
+        nama_pegawai:"BASUKI MARTYONO"
+      posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+    lokasi:"RO V JAKARTA 2" 
+  group_id:7 
+level:"user"  
+}
+        {
+          nip:"2171000626"
+          password:"12345"
+        nama_pegawai:"DEWI INTAN"
+        posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+       lokasi:"RO VI BANDUNG"
+       group_id:8
+       level:"user"
+       },  {
+          nip:"2184004373"
+          password:"12345"
+        nama_pegawai:"HANS AFFRIANDY"
+        posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+       lokasi:"RO X MAKASSAR"
+       group_id:9
+       level:"user"
+       },  {
+          nip:"2178000857"
+          password:"12345"
+        nama_pegawai:"MAISUR HILMI"
+        posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+       lokasi:"RO II MEDAN"
+       group_id:10 
+       level:"user"
+       },    {
+          nip:"2179001399"
+          password:"12345"
+        nama_pegawai:"SAMI GAUZI"
+      posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+    lokasi:"RO IV JAKARTA 1" 
+  group_id:11
+level:"user"  
+},
+        {
+          nip:"2183003542"
+          password:"12345"
+        nama_pegawai:"TENGKU ABDULLAH SANI"
+      posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+    lokasi:"RO III PALEMBANG" 
+  group_id:12  
+level:"user"  
+}
+        {
+          nip:"2179000558"
+          password:"12345"
+        nama_pegawai:"TENGKU RIZALDI SYAHPUTRA"
+        posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+       lokasi:"RO IV JAKARTA 1"
+       group_id:13 
+       level:"user"
+       },  {
+          nip:"2180000939"
+          password:"12345"
+        nama_pegawai:"WICAKSONO NUR ANGKASA"
+      posisi:"REGIONAL COMMERCIAL BUSINESS MANAGER"  
+    lokasi:"RO VIII SURABAYA" 
+  group_id:14  
+level:"user"  
+},
+
+
+        
+
+
+
+
+
+
+   
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+

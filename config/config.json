@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "lulushacktiv8",
+    "database": "pipeline_new",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "lulushacktiv8",
+    "database": "pipeline_new",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
