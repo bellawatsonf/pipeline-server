@@ -10,11 +10,23 @@ class PegawaiController {
   static getPegawai(req, res, next) {
     const { page, size, title } = req.query;
     const { limit, offset } = getPagination(page, size);
-    Pegawai.findAll({ include: [{ model: Group }] })
+    Pegawai.findAll({
+      include: [{ model: Group }],
+      where: {
+        [Op.or]: [{ level: "user" }, { level: "admin" }],
+      },
+    })
       .then((data) => {
         // console.log(data.username, "ini datanya")
         // res.status(201).json(data);
-        Pegawai.findAndCountAll({ include: [{ model: Group }], limit, offset })
+        Pegawai.findAndCountAll({
+          include: [{ model: Group }],
+          limit,
+          offset,
+          where: {
+            [Op.or]: [{ level: "user" }, { level: "admin" }],
+          },
+        })
           .then((data) => {
             const response = getPagingData(data, page, limit);
             res.send(response);
