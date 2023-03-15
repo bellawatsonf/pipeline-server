@@ -14,7 +14,7 @@ module.exports = {
           posisi: "Admin",
           lokasi: "Admin",
           group_id: 1,
-          level: "Admin",
+          level: "admin",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
