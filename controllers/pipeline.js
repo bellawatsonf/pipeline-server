@@ -17,6 +17,7 @@ class PegawaiController {
     let id = req.id;
     console.log(id, "idgetpipeline");
     const { page, size, nama_nasabah } = req.query;
+    console.log(nama_nasabah, "namanasbaah");
     const { limit, offset } = getPagination(page, size);
 
     let opt = {
@@ -31,6 +32,7 @@ class PegawaiController {
     };
 
     if (nama_nasabah) {
+      console.log(nama_nasabah, "datanamanasabah");
       opt.where.nama_nasabah = { [Op.iLike]: `%${nama_nasabah}%` };
     }
 
@@ -88,27 +90,47 @@ class PegawaiController {
       });
   }
   static getPipeline(req, res, next) {
-    const { page, size, title } = req.query;
+    const { page, size, nama_nasabah } = req.query;
+    console.log(nama_nasabah, "namanasbaah");
+
     const { limit, offset } = getPagination(page, size);
-    Pipeline.findAll({
+
+    let opt = {
       include: [
         { model: Pegawai },
         { model: Progress },
         { model: StatusPengajuan },
       ],
-    })
+      limit,
+      offset,
+      where: {},
+    };
+
+    if (nama_nasabah) {
+      console.log(nama_nasabah, "datanamanasabah");
+      opt.where.nama_nasabah = { [Op.iLike]: `%${nama_nasabah}%` };
+    }
+    // Pipeline.findAll({
+    //   include: [
+    //     { model: Pegawai },
+    //     { model: Progress },
+    //     { model: StatusPengajuan },
+    //   ],
+    // })
+    Pipeline.findAll(opt)
       .then((data) => {
         // console.log(data.username, "ini datanya")
         // res.status(201).json(data);
-        Pipeline.findAndCountAll({
-          include: [
-            { model: Pegawai },
-            { model: Progress },
-            { model: StatusPengajuan },
-          ],
-          limit,
-          offset,
-        })
+        // Pipeline.findAndCountAll({
+        //   include: [
+        //     { model: Pegawai },
+        //     { model: Progress },
+        //     { model: StatusPengajuan },
+        //   ],
+        //   limit,
+        //   offset,
+        // })
+        Pipeline.findAndCountAll(opt)
           .then((data) => {
             const response = getPagingData(data, page, limit);
             res.send(response);
