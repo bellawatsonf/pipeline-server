@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       Pipeline.belongsTo(models.Progress, { foreignKey: "id_progress" });
       Pipeline.belongsTo(models.Pegawai, { foreignKey: "id_pegawai" });
+      Pipeline.belongsTo(models.Sector, { foreignKey: "id_sector" });
       // define association here
     }
   }
@@ -31,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       tgl_RKP_A: DataTypes.DATE,
       tgl_RKP_B: DataTypes.DATE,
-      tgl_cair: DataTypes.DATE,
+      tgl_proyeksi: DataTypes.DATE,
       id_progress: {
         type: DataTypes.INTEGER,
         validate: {
@@ -42,13 +43,22 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       status_archive: DataTypes.BOOLEAN,
-      tgl_proyeksi_cair_rpm: DataTypes.DATE,
+      nominal_cair: DataTypes.STRING,
       id_pegawai: {
         type: DataTypes.INTEGER,
         validate: {
           notEmpty: {
             args: true,
             msg: "pegawai id must be fill",
+          },
+        },
+      },
+      id_sector: {
+        type: DataTypes.INTEGER,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "sector id must be fill",
           },
         },
       },

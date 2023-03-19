@@ -31,7 +31,7 @@ module.exports = {
       tgl_RKP_B: {
         type: Sequelize.DATE,
       },
-      tgl_cair: {
+      tgl_proyeksi: {
         type: Sequelize.DATE,
       },
       id_progress: {
@@ -44,8 +44,8 @@ module.exports = {
         onDelete: "cascade",
         onUpdate: "cascade",
       },
-      tgl_proyeksi_cair_rpm: {
-        type: Sequelize.DATE,
+      nominal_cair: {
+        type: Sequelize.STRING,
       },
       status_archive: {
         type: Sequelize.BOOLEAN,
@@ -55,6 +55,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Pegawais",
+          key: "id",
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade",
+      },
+      id_sector: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Sectors",
           key: "id",
         },
         onDelete: "cascade",
