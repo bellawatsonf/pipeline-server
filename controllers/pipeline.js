@@ -6,6 +6,7 @@ const {
   Group,
   Progress,
   StatusPengajuan,
+  Sector,
 } = require("../models/index");
 const { decrypt } = require("../helper/bcrypt");
 const { getPagingData, getPagination } = require("../helper/pagination");
@@ -25,6 +26,7 @@ class PegawaiController {
         { model: Pegawai },
         { model: Progress },
         { model: StatusPengajuan },
+        { model: Sector },
       ],
       limit,
       offset,
@@ -100,6 +102,7 @@ class PegawaiController {
         { model: Pegawai },
         { model: Progress },
         { model: StatusPengajuan },
+        { model: Sector },
       ],
       limit,
       offset,
@@ -159,6 +162,7 @@ class PegawaiController {
       nominal_cair: req.body.nominal_cair,
       tgl_proyeksi: req.body.tgl_proyeksi,
       id_pegawai: req.body.id_pegawai,
+      id_sector: req.body.id_sector,
       id_progress: req.body.id_progress,
       status_archive: req.body.status_archive,
       limit: req.body.limit,
@@ -190,6 +194,7 @@ class PegawaiController {
       tgl_proyeksi: req.body.tgl_proyeksi,
       id_pegawai: req.body.id_pegawai,
       id_progress: req.body.id_progress,
+      id_sector: req.body.id_sector,
       status_archive: req.body.status_archive,
       limit: req.body.limit,
     };
