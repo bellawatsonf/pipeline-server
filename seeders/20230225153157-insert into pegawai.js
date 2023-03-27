@@ -11,7 +11,7 @@ module.exports = {
         {
           nip: "88888",
           password: encrypt("12345"),
-          nama_pegawai: "Super Admin",
+          nama_pegawai: "user tester",
           posisi: "tester",
           lokasi: "bekasi",
           group_id: 1,
