@@ -7,6 +7,11 @@ module.exports = {
       "StatusPengajuans",
       [
         {
+          nama_pengajuan: "BARU",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
           nama_pengajuan: "TAMBAHAN",
           createdAt: new Date(),
           updatedAt: new Date(),

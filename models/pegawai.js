@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       nip: {
         allowNull: false,
         type: DataTypes.STRING,
+        unique: {
+          args: true,
+          msg: "nip already in use!",
+        },
       },
       nama_pegawai: DataTypes.STRING,
       password: {

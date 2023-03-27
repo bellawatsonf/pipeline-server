@@ -45,7 +45,7 @@ module.exports = {
         onUpdate: "cascade",
       },
       nominal_cair: {
-        type: Sequelize.STRING,
+        type: Sequelize.FLOAT,
       },
       status_archive: {
         type: Sequelize.BOOLEAN,

@@ -23,7 +23,7 @@ class PegawaiController {
 
     let opt = {
       include: [
-        { model: Pegawai },
+        { model: Pegawai, include: [{ model: Group }] },
         { model: Progress },
         { model: StatusPengajuan },
         { model: Sector },
@@ -99,7 +99,8 @@ class PegawaiController {
 
     let opt = {
       include: [
-        { model: Pegawai },
+        { model: Pegawai, include: [{ model: Group }] },
+
         { model: Progress },
         { model: StatusPengajuan },
         { model: Sector },
@@ -135,6 +136,106 @@ class PegawaiController {
         // })
         Pipeline.findAndCountAll(opt)
           .then((data) => {
+            const response = getPagingData(data, page, limit);
+            res.send(response);
+          })
+          .catch((err) => {
+            res.status(500).send({
+              message:
+                err.message ||
+                "Some error occurred while retrieving tutorials.",
+            });
+          });
+      })
+      .catch((err) => {
+        console.log(err, "error");
+        next(err);
+        // console.log(err)
+      });
+  }
+
+  static getPipelineDashboard(req, res, next) {
+    const { page, size, nama_nasabah } = req.query;
+    console.log(nama_nasabah, "namanasbaah");
+
+    const { limit, offset } = getPagination(page, size);
+
+    Pipeline.findAll({
+      attributes: [
+        [
+          Sequelize.fn("DATE_TRUNC", "month", Sequelize.col("tgl_proyeksi")),
+          "production_to_month",
+        ],
+        [Sequelize.fn("SUM", Sequelize.col("nominal_cair")), "total"],
+        [Sequelize.col("Pegawai.nama_pegawai"), "nama_pegawai"],
+      ],
+      include: [
+        {
+          model: Pegawai,
+          as: "Pegawai",
+        },
+      ],
+      where: {
+        [Op.and]: [
+          Sequelize.where(
+            Sequelize.fn("date_part", "year", Sequelize.col("tgl_proyeksi")),
+            Sequelize.fn("date_part", "year", Sequelize.fn("NOW"))
+          ),
+        ],
+      },
+      group: [
+        Sequelize.fn("DATE_TRUNC", "month", Sequelize.col("tgl_proyeksi")),
+        Sequelize.col("Pegawai.id"),
+      ],
+
+      limit,
+      offset,
+    })
+      .then((data) => {
+        // console.log(data, "ini datanya");
+        // res.send(data);
+
+        Pipeline.findAndCountAll({
+          attributes: [
+            [
+              Sequelize.fn(
+                "DATE_TRUNC",
+                "month",
+                Sequelize.col("tgl_proyeksi")
+              ),
+              "production_to_month",
+            ],
+            [Sequelize.fn("SUM", Sequelize.col("nominal_cair")), "total"],
+            [Sequelize.col("Pegawai.nama_pegawai"), "nama_pegawai"],
+          ],
+          include: [
+            {
+              model: Pegawai,
+              as: "Pegawai",
+            },
+          ],
+          where: {
+            [Op.and]: [
+              Sequelize.where(
+                Sequelize.fn(
+                  "date_part",
+                  "year",
+                  Sequelize.col("tgl_proyeksi")
+                ),
+                Sequelize.fn("date_part", "year", Sequelize.fn("NOW"))
+              ),
+            ],
+          },
+          group: [
+            Sequelize.fn("DATE_TRUNC", "month", Sequelize.col("tgl_proyeksi")),
+            Sequelize.col("Pegawai.id"),
+          ],
+
+          limit,
+          offset,
+        })
+          .then((data) => {
+            console.log(data, "datapipelinedashboard");
             const response = getPagingData(data, page, limit);
             res.send(response);
           })

@@ -37,7 +37,7 @@ router.delete(
   PegawaiController.deletePegawai
 );
 
-router.get("/sektor", authorizeGetSektor, SektorController.getSektor);
+router.get("/sektor", SektorController.getSektor);
 router.post("/add-sektor", authorizeGetSektor, SektorController.addSektor);
 router.get("/sektor/:id", authorizeGetSektor, SektorController.getSektorById);
 router.put("/edit-sektor/:id", authorizeGetSektor, SektorController.editSektor);
@@ -101,6 +101,7 @@ router.delete("/delete-group/:id", authorizeGroup, GroupController.deleteGroup);
 
 router.get("/pipeline", PipelineController.getPipeline);
 router.get("/pipeline-user", PipelineController.getPipelineUser);
+router.get("/pipeline-dashboard", PipelineController.getPipelineDashboard);
 
 router.post("/add-pipeline", PipelineController.addPipeline);
 router.get("/pipeline/:id", PipelineController.getPipelineById);

@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       nama_progress: {
         type: DataTypes.STRING,
-        unique: true,
+        unique: {
+          args: true,
+          msg: "progress name already in use!",
+        },
       },
     },
     {

@@ -45,6 +45,7 @@ class GroupController {
     console.log(req, "request");
     let input = {
       nama_group: req.body.nama_group,
+      initial_group: req.body.initial_group,
     };
     console.log(input, "input");
     Group.create(input)
@@ -66,6 +67,7 @@ class GroupController {
     let id = req.params.id;
     let input = {
       nama_group: req.body.nama_group,
+      initial_group: req.body.initial_group,
     };
     console.log(input, "input");
     Group.update(input, { where: { id }, returning: true })
@@ -96,8 +98,10 @@ class GroupController {
     let id = req.params.id;
     Group.destroy({ where: { id }, returning: true })
       .then((data) => {
-        // console.log(data)
+        console.log(data, "data delete");
         if (data) {
+          console.log(data, "data delete");
+
           res.status(200).json({
             message: "Data Group berhasil dihapus",
           });

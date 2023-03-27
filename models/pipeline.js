@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       status_archive: DataTypes.BOOLEAN,
-      nominal_cair: DataTypes.STRING,
+      nominal_cair: DataTypes.FLOAT,
       id_pegawai: {
         type: DataTypes.INTEGER,
         validate: {

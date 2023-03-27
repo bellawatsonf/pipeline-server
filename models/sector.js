@@ -20,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       nama_sector: {
         type: DataTypes.STRING,
-        unique: true,
+        unique: {
+          args: true,
+          msg: "sector name already in use!",
+        },
       },
     },
     {

@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       nama_pengajuan: {
         type: DataTypes.STRING,
-        unique: true,
+        unique: {
+          args: true,
+          msg: "submission name already in use!",
+        },
       },
     },
     {

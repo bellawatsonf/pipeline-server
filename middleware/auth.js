@@ -4,6 +4,7 @@ const {
   Sector,
   Progress,
   StatusPengajuan,
+  Group,
 } = require("../models/index.js");
 
 const authentication = (req, res, next) => {

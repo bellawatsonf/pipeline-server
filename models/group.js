@@ -14,7 +14,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Group.init(
     {
-      nama_group: DataTypes.STRING,
+      nama_group: {
+        type: DataTypes.STRING,
+      },
+      initial_group: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,
