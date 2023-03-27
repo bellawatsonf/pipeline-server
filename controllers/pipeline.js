@@ -31,6 +31,7 @@ class PegawaiController {
       limit,
       offset,
       where: { id_pegawai: id, status_archive: false },
+      order: [["createdAt", "DESC"]],
     };
 
     if (nama_nasabah) {
@@ -108,6 +109,7 @@ class PegawaiController {
       limit,
       offset,
       where: {},
+      order: [["createdAt", "DESC"]],
     };
 
     if (nama_nasabah) {
