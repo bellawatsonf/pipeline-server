@@ -12,7 +12,7 @@ const { decrypt } = require("../helper/bcrypt");
 const { getPagingData, getPagination } = require("../helper/pagination");
 
 const { Sequelize, Op } = require("sequelize");
-const { QueryTypes } = require("Sequelize");
+const { QueryTypes } = require("sequelize");
 const db = require("../models/index.js");
 const FormatDate = require("../helper/formatdate");
 const moment = require("moment/moment");
