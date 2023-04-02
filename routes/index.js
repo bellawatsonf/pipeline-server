@@ -100,12 +100,12 @@ router.put("/edit-group/:id", authorizeGroup, GroupController.editGroup);
 router.delete("/delete-group/:id", authorizeGroup, GroupController.deleteGroup);
 
 router.get("/pipeline", PipelineController.getPipeline);
+router.post("/add-pipeline", PipelineController.addPipeline);
+router.get("/pipeline/:id", PipelineController.getPipelineById);
 router.get("/pipeline-user", PipelineController.getPipelineUser);
 router.get("/pipeline-dashboard", PipelineController.getPipelineDashboard);
 
 router.get("/pipeline-group", PipelineController.getPipelineGroup);
-router.post("/add-pipeline", PipelineController.addPipeline);
-router.get("/pipeline/:id", PipelineController.getPipelineById);
 
 router.put(
   "/edit-pipeline/:id",
