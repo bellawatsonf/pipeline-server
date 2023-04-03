@@ -23,12 +23,15 @@ class PegawaiController {
     let id = req.id;
     console.log(id, "idgetpipeline");
     const { page, size, nama_nasabah, waktu_awal, filter_tahun } = req.query;
-    // console.log(waktu_awal.split("-")[1], "waktuawal");
-    let year = filter_tahun ? filter_tahun : "2001";
-    let year2 = filter_tahun ? filter_tahun : new Date().getFullYear();
+    console.log(filter_tahun, "waktuawal");
+    let year = filter_tahun ? filter_tahun : filter_tahun;
+    let year2 =
+      filter_tahun || filter_tahun !== ""
+        ? filter_tahun
+        : new Date().getFullYear();
     let bulan = waktu_awal === "all" ? "01" : waktu_awal;
     let bulan2 = waktu_awal === "all" ? "12" : waktu_awal;
-    let startdate = `${year}-${bulan}-1`;
+    let startdate = `${year}-${bulan}-01`;
     let enddate = `${year2}-${bulan2}-31`;
 
     const { limit, offset } = getPagination(page, size);
@@ -54,7 +57,7 @@ class PegawaiController {
       console.log(nama_nasabah, "datanamanasabah");
       opt.where.nama_nasabah = { [Op.iLike]: `%${nama_nasabah}%` };
     }
-    if (waktu_awal || waktu_awal === "all") {
+    if (waktu_awal || waktu_awal === "all" || filter_tahun) {
       opt.where.createdAt = {
         [Op.gte]: startdate,
         [Op.lte]: enddate,
@@ -117,13 +120,15 @@ class PegawaiController {
   static getPipeline(req, res, next) {
     const { page, size, nama_nasabah, waktu_awal, filter_tahun } = req.query;
     // console.log(waktu_awal.split("-")[1], "waktuawal");
-    let year = filter_tahun ? filter_tahun : "2001";
-    let year2 = filter_tahun ? filter_tahun : new Date().getFullYear();
+    let year = filter_tahun ? filter_tahun : filter_tahun;
+    let year2 =
+      filter_tahun || filter_tahun !== ""
+        ? filter_tahun
+        : new Date().getFullYear();
     let bulan = waktu_awal === "all" ? "01" : waktu_awal;
     let bulan2 = waktu_awal === "all" ? "12" : waktu_awal;
-    let startdate = `${year}-${bulan}-1`;
+    let startdate = `${year}-${bulan}-01`;
     let enddate = `${year2}-${bulan2}-31`;
-
     const { limit, offset } = getPagination(page, size);
 
     let opt = {
@@ -144,7 +149,7 @@ class PegawaiController {
       console.log(nama_nasabah, "datanamanasabah");
       opt.where.nama_nasabah = { [Op.iLike]: `%${nama_nasabah}%` };
     }
-    if (waktu_awal || waktu_awal === "all") {
+    if (waktu_awal || waktu_awal === "all" || filter_tahun) {
       opt.where.createdAt = {
         [Op.gte]: startdate,
         [Op.lte]: enddate,
