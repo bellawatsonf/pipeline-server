@@ -177,6 +177,7 @@ class PegawaiController {
         // })
         Pipeline.findAndCountAll(opt)
           .then((data) => {
+            console.log(res, "rees");
             const response = getPagingData(data, page, limit);
             res.send(response);
           })
@@ -323,17 +324,158 @@ class PegawaiController {
     console.log(data, "dataquery");
   }
 
+  static async getPipelineDashboardPerUser(req, res, next) {
+    let id = req.id;
+
+    // const { page, size, nama_nasabah } = req.query;
+    // console.log(nama_nasabah, "namanasbaah");
+
+    // const { limit, offset } = getPagination(page, size);
+
+    // Pipeline.findAll({
+    //   attributes: [
+    //     [
+    //       Sequelize.fn("DATE_TRUNC", "month", Sequelize.col("tgl_proyeksi")),
+    //       "production_to_month",
+    //     ],
+    //     [Sequelize.fn("SUM", Sequelize.col("nominal_cair")), "total"],
+    //     [Sequelize.col("Pegawai.nama_pegawai"), "nama_pegawai"],
+    //     [Sequelize.col("Pegawai.Group.nama_pegawai"), "nama_pegawai"],
+    //   ],
+    //   include: [
+    //     {
+    //       model: Pegawai,
+    //       attributes: [[Sequelize.col("Group.nama_group"), "nama_group"]],
+    //       as: "Pegawai",
+    //       include: [
+    //         {
+    //           model: Group,
+    //           as: "Group",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   where: {
+    //     [Op.and]: [
+    //       Sequelize.where(
+    //         Sequelize.fn("date_part", "year", Sequelize.col("tgl_proyeksi")),
+    //         Sequelize.fn("date_part", "year", Sequelize.fn("NOW"))
+    //       ),
+    //     ],
+    //   },
+    //   group: [
+    //     Sequelize.fn("DATE_TRUNC", "month", Sequelize.col("tgl_proyeksi")),
+    //     Sequelize.col("Pegawai.id"),
+    //     Sequelize.col("Pegawai.Group.nama_group"),
+    //   ],
+
+    //   limit,
+    //   offset,
+    // })
+    //   .then((data) => {
+    //     // console.log(data, "ini datanya");
+    //     // res.send(data);
+
+    //     Pipeline.findAndCountAll({
+    //       attributes: [
+    //         [
+    //           Sequelize.fn(
+    //             "DATE_TRUNC",
+    //             "month",
+    //             Sequelize.col("tgl_proyeksi")
+    //           ),
+    //           "production_to_month",
+    //         ],
+    //         [Sequelize.fn("SUM", Sequelize.col("nominal_cair")), "total"],
+    //         [Sequelize.col("Pegawai.nama_pegawai"), "nama_pegawai"],
+    //       ],
+    //       include: [
+    //         {
+    //           model: Pegawai,
+    //           as: "Pegawai",
+    //         },
+    //       ],
+    //       where: {
+    //         [Op.and]: [
+    //           Sequelize.where(
+    //             Sequelize.fn(
+    //               "date_part",
+    //               "year",
+    //               Sequelize.col("tgl_proyeksi")
+    //             ),
+    //             Sequelize.fn("date_part", "year", Sequelize.fn("NOW"))
+    //           ),
+    //         ],
+    //       },
+    //       group: [
+    //         Sequelize.fn("DATE_TRUNC", "month", Sequelize.col("tgl_proyeksi")),
+    //         Sequelize.col("Pegawai.id"),
+    //       ],
+
+    //       limit,
+    //       offset,
+    //     })
+    //       .then((data) => {
+    //         console.log(data, "datapipelinedashboard");
+    //         const response = getPagingData(data, page, limit);
+    //         res.send(response);
+    //       })
+    //       .catch((err) => {
+    //         res.status(500).send({
+    //           message:
+    //             err.message ||
+    //             "Some error occurred while retrieving tutorials.",
+    //         });
+    //       });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err, "error");
+    //     next(err);
+    //     // console.log(err)
+    //   });
+
+    const data = await db.sequelize
+      .query(
+        `SELECT 
+        DATE_TRUNC('month',pp.tgl_proyeksi)
+          AS  production_to_month,
+        SUM(pp.nominal_cair) as total
+   
+        FROM "Pipelines" as pp 
+        
+        inner join (select Pg.id, Pg.nama_pegawai, Gr.nama_group,Pg.group_id from "Pegawais" as Pg
+        INNER JOIN "Groups" as Gr
+        ON Gr.id= Pg.group_id) n2
+        ON n2.id = pp.id_pegawai
+        WHERE date_part('year', pp.tgl_proyeksi) = date_part('year', CURRENT_DATE) 
+        GROUP BY DATE_TRUNC('month',pp.tgl_proyeksi)`,
+        {
+          type: db.sequelize.QueryTypes.SELECT,
+        }
+      )
+      .then((data) => {
+        console.log(data, "ini datanya");
+        res.send(data);
+      })
+      .catch((err) => {
+        console.log(err, "error");
+        next(err);
+        // console.log(err)
+      });
+
+    console.log(data, "dataquery");
+  }
   static async getPipelineGroup(req, res, next) {
     let data = await db.sequelize
       .query(
-        `SELECT n2.nama_pegawai, n2.id,n2.initial_group,
+        `SELECT n2.initial_group,
           SUM(pp.nominal_cair) as total FROM "Pipelines" as pp 
           inner join (select Pg.id, Pg.nama_pegawai, Gr.nama_group,Gr.initial_group,Pg.group_id from "Pegawais" as Pg
           INNER JOIN "Groups" as Gr 
           ON Gr.id= Pg.group_id) n2 
           ON n2.id = pp.id_pegawai 
-          WHERE date_part('year', pp.tgl_proyeksi) = date_part('year', CURRENT_DATE)
-          GROUP BY  n2.id,n2.nama_pegawai ,n2.initial_group`,
+          WHERE date_part('year', pp.tgl_proyeksi) = date_part('year', CURRENT_DATE) 
+          GROUP BY n2.initial_group`,
         {
           type: db.sequelize.QueryTypes.SELECT,
         }
@@ -345,6 +487,7 @@ class PegawaiController {
         next(e);
       });
   }
+
   static addPipeline(req, res, next) {
     console.log(req, "request");
     let input = {
