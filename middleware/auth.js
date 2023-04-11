@@ -8,7 +8,7 @@ const {
 } = require("../models/index.js");
 
 const authentication = (req, res, next) => {
-  console.log(req, "headertokenn");
+  // console.log(req, "headertokenn");
   if (!req.headers.token) {
     res.status(400).json({
       message: "Please Login First",
